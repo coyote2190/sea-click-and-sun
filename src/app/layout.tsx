@@ -1,23 +1,24 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import { Bricolage_Grotesque, Sora } from 'next/font/google';
 
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
-// import './globals.scss';
-
-const bricolageGrotesque = Bricolage_Grotesque({
+const sora = Sora({
+  display: 'swap',
   subsets: ['latin'],
-  variable: '--font-bricolage'
+  variable: '--font-sora',
+  weight: ['100', '200', '300', '400', '500', '600', '700']
 });
 
-const sora = Sora({
+const bricolage = Bricolage_Grotesque({
+  display: 'swap',
   subsets: ['latin'],
-  variable: '--font-sora'
+  variable: '--font-bricolage',
+  weight: ['300', '400', '500', '600', '700']
 });
 
 export const metadata: Metadata = {
-  description: 'Site WordPress Headless avec Next.js et Apollo',
-  title: 'WordPress avec Next.js'
+  title: 'Sea Click & Sun'
 };
 
 export default function RootLayout({
@@ -26,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className={`${bricolageGrotesque.variable} ${sora.variable}`}>
+    <html className={`${bricolage.variable} ${sora.variable}`} lang="fr">
+      <body>
         <ThemeProvider>
           <main>{children}</main>
         </ThemeProvider>
