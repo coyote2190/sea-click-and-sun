@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Bricolage_Grotesque, Sora } from 'next/font/google';
 
+import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
 const sora = Sora({
@@ -29,9 +30,11 @@ export default function RootLayout({
   return (
     <html className={`${bricolage.variable} ${sora.variable}`} lang="fr">
       <body>
-        <ThemeProvider>
-          <main>{children}</main>
-        </ThemeProvider>
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            <main>{children}</main>
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
