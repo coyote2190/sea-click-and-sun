@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 
-import Container from '../container';
+import Container from '../../container';
 
 import {
   StyledServiceCard,

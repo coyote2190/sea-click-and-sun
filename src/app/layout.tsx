@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Bricolage_Grotesque, Sora } from 'next/font/google';
 
+import { ThemeContextProvider } from '@/context/ThemeContext';
 import StyledComponentsRegistry from '@/lib/registry';
 import { ThemeProvider } from '@/theme/ThemeProvider';
 
@@ -31,9 +32,11 @@ export default function RootLayout({
     <html className={`${bricolage.variable} ${sora.variable}`} lang="fr">
       <body>
         <StyledComponentsRegistry>
-          <ThemeProvider>
-            <main>{children}</main>
-          </ThemeProvider>
+          <ThemeContextProvider>
+            <ThemeProvider>
+              <main>{children}</main>
+            </ThemeProvider>
+          </ThemeContextProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

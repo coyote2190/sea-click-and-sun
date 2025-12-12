@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const StyledIdentityContainer = styled.section`
   overflow: hidden;
+  background: linear-gradient(135deg, #c2d5d9 0%, #d4c5d9 25%, #e8d4e8 50%, #f5d9e8 75%, #ffd9b3 100%);
+  position: relative;
   > div {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 100px;
     padding: 120px 80px;
-    background-color: ${({ theme }) => theme.colors.neutral.gray[50]};
     align-items: start;
 
     ${({ theme }) => theme.breakpoints.down('lg')} {
@@ -27,25 +28,59 @@ export const StyledIdentityContainer = styled.section`
   }
 `;
 
-export const StyledIdentityTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fonts.size['7xl']};
-  font-weight: ${({ theme }) => theme.fonts.weight.bold};
-  color: ${({ theme }) => theme.colors.primary};
-  line-height: 1;
+export const StyledIdentityTitle = styled.div`
   position: sticky;
   top: 120px;
 
-  ${({ theme }) => theme.breakpoints.down('lg')} {
-    font-size: ${({ theme }) => theme.fonts.size['6xl']};
-  }
-
   ${({ theme }) => theme.breakpoints.down('md')} {
-    font-size: ${({ theme }) => theme.fonts.size['5xl']};
     position: static;
   }
 
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    font-size: ${({ theme }) => theme.fonts.size['4xl']};
+  h2 {
+    font-size: 6.5rem;
+    font-weight: ${({ theme }) => theme.fonts.weight.bold};
+    color: ${({ theme }) => theme.colors.primary};
+    line-height: 1;
+    /* 
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+      font-size: ${({ theme }) => theme.fonts.size['6xl']};
+    }
+
+    ${({ theme }) => theme.breakpoints.down('md')} {
+      font-size: ${({ theme }) => theme.fonts.size['5xl']};
+      position: static;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      font-size: ${({ theme }) => theme.fonts.size['4xl']};
+    } */
+  }
+
+  img {
+    animation: spin 6s linear infinite;
+    transform-origin: 50% 50%;
+    will-change: transform;
+    position: absolute;
+    top: 250px;
+    right: 0;
+    width: 100px;
+    height: 100px;
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    ${({ theme }) => theme.breakpoints.down('md')} {
+      top: 250px;
+      right: 40px;
+      width: 150px;
+      height: 150px;
+    }
   }
 `;
 

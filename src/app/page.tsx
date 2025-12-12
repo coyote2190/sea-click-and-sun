@@ -1,5 +1,11 @@
 'use client';
 
+import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+
+import { Header, Idendity, WhoAreWe } from '@/components';
+import { useTheme } from '@/context/ThemeContext';
+
 import {
   Badge,
   BadgeDot,
@@ -11,9 +17,26 @@ import {
   PillRow,
   Title,
   TitleSpan
-} from './home.styles';
+} from './home.inprogress.styles';
+import { HomeContainer } from './home.styles';
 
-export default function Home() {
+function HomeContent() {
+  const searchParams = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
+  const { toggleTheme } = useTheme();
+
+  // Mode preview : affiche la nouvelle version
+  if (isPreview) {
+    return (
+      <HomeContainer>
+        <Header isDarkMode={false} toggleTheme={toggleTheme} />
+        <WhoAreWe />
+        <Idendity />
+      </HomeContainer>
+    );
+  }
+
+  // Mode public : affiche la page "Coming Soon"
   return (
     <PageContainer>
       <Card aria-labelledby="title">
@@ -49,5 +72,13 @@ export default function Home() {
         </Footer>
       </Card>
     </PageContainer>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<PageContainer />}>
+      <HomeContent />
+    </Suspense>
   );
 }

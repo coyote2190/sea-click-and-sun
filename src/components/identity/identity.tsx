@@ -1,14 +1,14 @@
 'use client';
 
 import { FC } from 'react';
+import Image from 'next/image';
 
+import Button from '../button';
 import Container from '../container';
 
 import {
-  StyledIdentityButton,
   StyledIdentityContainer,
   StyledIdentityContent,
-  StyledIdentityDescription,
   StyledIdentityIntro,
   StyledIdentityTitle
 } from './identity.styles';
@@ -18,29 +18,22 @@ const Identity: FC<IdentityProps> = ({ dataTestId }) => {
   return (
     <StyledIdentityContainer data-testid={dataTestId}>
       <Container>
-        <StyledIdentityTitle>Company</StyledIdentityTitle>
+        <StyledIdentityTitle>
+          <h2>Notre identité.</h2>
+          <Image alt="form" height={150} src="/form.png" width={150} />
+        </StyledIdentityTitle>
+
         <StyledIdentityContent>
           <StyledIdentityIntro>
-            We are a creative digital agency specializing in innovative design and cutting-edge development. We help
-            businesses stand out and thrive in the modern landscape.
+            Deux univers complémentaires, une seule vision. <br />
+            <br />
+            La graphiste façonne des identités visuelles mémorables, avec une sensibilité artistique. <br />
+            <br />
+            Le développeur web transforme les idées en sites fluides, rapides et durables, optimisés pour tous les
+            écrans.
           </StyledIdentityIntro>
-          <StyledIdentityDescription>
-            From pixel-perfect designs to flawless code, every aspect of our projects is crafted with care to ensure the
-            highest standards of quality. We are passionate about integrating the latest technologies and trends,
-            including interactive animations and mobile-first strategies.
-          </StyledIdentityDescription>
-          <StyledIdentityButton>
-            More About Us
-            <svg fill="none" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M7 17L17 7M17 7H7M17 7V17"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
-          </StyledIdentityButton>
+
+          <Button variant="outlined">More About Us</Button>
         </StyledIdentityContent>
       </Container>
     </StyledIdentityContainer>

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 
-import Container from '../container';
+import Container from '../../container';
 import Marquee from '../marquee';
 
 import { StyledHeroContainer } from './hero.styles';

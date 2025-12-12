@@ -14,10 +14,11 @@
     "create:component": "ts-node scripts/create-component.ts"
   },
   "dependencies": {
+    "framer-motion": "^12.23.25",
     "next": "16.0.7",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "sass": "^1.94.2",
+    "sass": "^1.95.0",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -43,6 +44,6 @@
     "stylelint-order": "^7.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5",
-    "typescript-eslint": "^8.48.1"
+    "typescript-eslint": "^8.49.0"
   }
 }

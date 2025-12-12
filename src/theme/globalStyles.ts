@@ -126,6 +126,9 @@ blockquote,
 q {
 quotes: none;
 }
+p{
+font-family: var(--font-sora), sans-serif;
+}
 blockquote:before,
 blockquote:after,
 q:before,
