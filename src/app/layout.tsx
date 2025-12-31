@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 import { Bricolage_Grotesque, Sora } from 'next/font/google';
 
-import { ThemeContextProvider } from '@/context/ThemeContext';
-import StyledComponentsRegistry from '@/lib/registry';
-import { ThemeProvider } from '@/theme/ThemeProvider';
+import './tailwind.css';
+import './globals.css';
 
 const sora = Sora({
   display: 'swap',
@@ -23,22 +22,10 @@ export const metadata: Metadata = {
   title: 'Sea Click & Sun'
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={`${bricolage.variable} ${sora.variable}`} lang="fr">
-      <body>
-        <StyledComponentsRegistry>
-          <ThemeContextProvider>
-            <ThemeProvider>
-              <main>{children}</main>
-            </ThemeProvider>
-          </ThemeContextProvider>
-        </StyledComponentsRegistry>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

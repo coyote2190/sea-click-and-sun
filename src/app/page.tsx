@@ -1,83 +1,75 @@
 'use client';
 
 import { Suspense } from 'react';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 
-import { Header, Idendity, WhoAreWe } from '@/components';
-import { useTheme } from '@/context/ThemeContext';
-
 import {
-  Badge,
-  BadgeDot,
-  Card,
-  Description,
+  CompanyIdentity,
   Footer,
-  PageContainer,
-  Pill,
-  PillRow,
-  Title,
-  TitleSpan
-} from './home.inprogress.styles';
-import { HomeContainer } from './home.styles';
+  Header,
+  Hero,
+  Marquee,
+  OurMethod,
+  OurServices,
+  ProjectSlider,
+  References
+} from '@/components';
+
+import './home.scss';
 
 function HomeContent() {
   const searchParams = useSearchParams();
   const isPreview = searchParams.get('preview') === 'true';
-  const { toggleTheme } = useTheme();
 
-  // Mode preview : affiche la nouvelle version
-  if (isPreview) {
+  // Coming Soon Page
+  if (!isPreview) {
     return (
-      <HomeContainer>
-        <Header isDarkMode={false} toggleTheme={toggleTheme} />
-        <WhoAreWe />
-        <Idendity />
-      </HomeContainer>
+      <main className="min-h-screen bg-white flex items-center justify-center px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="flex flex-col items-center justify-center gap-8 mb-8">
+            <div className="flex-shrink-0">
+              <Image alt="logo sea click and sun" height={150} src="/SCAS-LOGOS-01.png" width={300} />
+            </div>
+
+            <h1 className="text-6xl lg:text-7xl font-bold font-['Bricolage_Grotesque'] leading-tight">
+              Bientôt en ligne
+            </h1>
+          </div>
+          <p className="text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed">
+            Notre nouveau site web arrive très prochainement. Restez connectés pour découvrir nos créations et services.
+          </p>
+        </div>
+      </main>
     );
   }
 
-  // Mode public : affiche la page "Coming Soon"
+  // Full Home Page (with ?preview=true)
   return (
-    <PageContainer>
-      <Card aria-labelledby="title">
-        <Badge>
-          <BadgeDot />
-          Site en cours de préparation
-        </Badge>
+    <main>
+      <Header />
+      <Hero />
+      {/* <ScrollImage alt="Creative workspace" imageUrl="/vlad-hilitanu-1FI2QAYPa-Y-unsplash.jpg" /> */}
+      <Marquee
+        backgroundColor="#e87461"
+        speed={50}
+        text="LOGO * CHARTE GRAPHIQUE * SITE WEB * E-COMMERCE * PRINT * BRANDING * SEO * MARKETING DIGITAL"
+        textColor="#fff"
+      />
+      <CompanyIdentity />
+      <OurServices />
+      <OurMethod />
 
-        <Title id="title">
-          <TitleSpan>Sea Click and Sun</TitleSpan>
-          Bientôt un nouveau site
-        </Title>
-
-        <Description>
-          Nous sommes un duo créatif – graphiste et développeur – qui imagine, conçoit et réalise des expériences en
-          ligne uniques, esthétiques et performantes.
-        </Description>
-
-        <PillRow>
-          <Pill $accent>Identité graphique</Pill>
-          <Pill>Logo</Pill>
-          <Pill>Support Print</Pill>
-          <Pill>Développement Web</Pill>
-          <Pill>UX/UI Design</Pill>
-          <Pill>Seo</Pill>
-        </PillRow>
-
-        <Footer>
-          <span>
-            Besoin d&apos;échanger sur un projet ?<br />
-            <strong>Le site arrive très bientôt.</strong>
-          </span>
-        </Footer>
-      </Card>
-    </PageContainer>
+      <ProjectSlider />
+      <References />
+      <Footer />
+    </main>
   );
 }
 
 export default function Home() {
   return (
-    <Suspense fallback={<PageContainer />}>
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
       <HomeContent />
     </Suspense>
   );

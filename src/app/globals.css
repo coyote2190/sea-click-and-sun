@@ -1,0 +1,20 @@
+/* Global Styles */
+/* body {
+  background-color: #fffaf8;
+} */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+p {
+  font-family: 'Sora', sans-serif;
+}
+span {
+  font-family: 'Sora', sans-serif;
+}

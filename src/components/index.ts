@@ -1,6 +1,10 @@
-export { default as Button } from './button';
-export { default as Container } from './container';
+export { default as CompanyIdentity } from './companyIdentity';
+export { default as Footer } from './footer';
 export { default as Header } from './header';
-export { default as Idendity } from './identity';
-export { default as WhoAreWe } from './whoAreWe';
-// export { default as Services } from './services';
+export { default as Hero } from './hero';
+export { default as Marquee } from './marquee';
+export { default as OurMethod } from './ourMethod';
+export { default as OurServices } from './ourServices';
+export { default as ProjectSlider } from './projectSlider';
+export { default as References } from './references';
+export { default as ScrollImage } from './scrollImage';

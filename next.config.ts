@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       pure: true,
       ssr: true
     }
+  },
+  sassOptions: {
+    additionalData: `$var: red;`
   }
 };
 
