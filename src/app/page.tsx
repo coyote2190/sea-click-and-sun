@@ -25,10 +25,10 @@ function HomeContent() {
   // Coming Soon Page
   if (!isPreview) {
     return (
-      <main className="min-h-screen bg-white flex items-center justify-center px-6">
+      <main className="min-h-screen min-h-[100dvh] bg-white flex items-center justify-center px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-col items-center justify-center gap-8 mb-8">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Image alt="logo sea click and sun" height={150} src="/SCAS-LOGOS-01.png" width={300} />
             </div>
 
@@ -37,7 +37,8 @@ function HomeContent() {
             </h1>
           </div>
           <p className="text-xl lg:text-2xl text-gray-600 mb-12 leading-relaxed">
-            Notre nouveau site web arrive très prochainement. Restez connectés pour découvrir nos créations et services.
+            Notre nouveau site web arrive très prochainement. <br />
+            Restez connectés pour découvrir nos créations et services.
           </p>
         </div>
       </main>

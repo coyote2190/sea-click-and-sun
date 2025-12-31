@@ -84,10 +84,10 @@ export default function ScenarioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen min-h-[100dvh] bg-white">
       <Header />
       {/* Hero Header Section */}
-      <section className="min-h-screen bg-white flex items-center px-6 lg:px-12 py-20">
+      <section className="min-h-screen min-h-[100dvh] bg-white flex items-center px-6 lg:px-12 py-20">
         <div className="max-w-7xl mx-auto w-full">
           <div className="mb-16">
             <h1 className="text-5xl lg:text-8xl font-bold mb-8 font-['Bricolage_Grotesque'] leading-tight">
